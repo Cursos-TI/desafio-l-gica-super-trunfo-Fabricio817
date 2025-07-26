@@ -5,7 +5,7 @@
 int main() {
  
     //cadastro de vaiaveis
-    int opção;
+    int opcao;
     int menu;
     int carta1, carta2;
     int caracteristica;
@@ -28,7 +28,7 @@ int main() {
   PIB_per_capita1 = PIB_cidade1 / populacao_cidade1;
   PIB_per_capita2 = PIB_cidade2 / populacao_cidade2;
 
-//ensagem de bosas viddas ao jogo.
+//mensagem de boas vindas ao jogo.
 
   printf("Seja bem bem vindo ao jogo super Trunfo\n");
   printf("Espero que se divirta\n");
@@ -40,17 +40,19 @@ int main() {
     printf("2. Vissualizar Regras:\n");
     printf("3. Sair:\n");
     printf("Escolha a opção: ");
-    scanf("%d", &opção);
+    scanf("%d", &opcao);
 
 //switch de decisao de inicialização do jogo.
 //case 1 para inicialização dando inicio ao procimo menu.
 //case 2 para apresentação das regras do jogo.
 //case 3 para mensagem de despedida.
-switch (opção)
+switch (opcao)
 {
 case 1:
     printf("###Escolha a carta:### \n");
-    scanf("%d", &carta1);
+    printf("Para escolher a carta 1 digite: 1\n");
+    printf("Para escolher a carta 2 digite: 2\n");
+    scanf("%d", &carta1 , carta2);
 
  break;
    
@@ -72,9 +74,8 @@ case 3:
 
 }
 // switch de apresentação da carta escolhida
-switch (carta1)
-{
-case 1:
+if (carta1 == 1 ) {
+
     printf("Você escolheu a carta 1: Manaus(AM)\n");
     printf("1. População: 2.279.686\n");
     printf("2. Área: 1.140.100 km²\n");
@@ -82,17 +83,12 @@ case 1:
     printf("4. Número de pontos turísticos: 10\n");
     printf("5. Densidade populacional: 2.000 hab/km²\n");
     printf("6.  PIB per capita: R$ 19.200\n");
+  
+    printf("###Escolha duas Caracteristicas### \n");
+    scanf("%d \n", &caracteristica);
+  
+} else if (carta2 == 2){
    
-    printf("###Escolha qual caracterisca gostaria de jogar:### \n"); 
-    scanf("%d", &caracteristica);
-
-    printf("###Escolha qual caracterisca gostaria de jogar:### \n"); 
-    scanf("%d", &caracteristica2);
-   
-
-    break;
-
-    case 2:
     printf("Você escolheu a carta 2: Belém(PA)\n");
     printf("1. População: 1303403\n");
     printf("2. Área: 1059000 km²\n");
@@ -101,25 +97,22 @@ case 1:
     printf("5. Densidade populacional: 1200 hab/km²\n");
     printf("6. PIB per capita: R$ 49000\n");
     
-
-    printf("###Escolha duas Caracteristicas### \n");
+    printf("###Escolha a primeira Caracteristica###");
     scanf("%d \n", &caracteristica);
-
-    printf("###Escolha segunda caracteristica###");
-    scanf("%d \n", &caracteristica2);
-
-    break;
-  
-    default:
-    printf("Carta inválida. Por favor, escolha uma carta válida.\n");
-    break;
+} else{
+    printf("Opção Invalida");   
 }
-   
-switch (caracteristica)
+
+
+if (caracteristica == caracteristica2) {
+    printf("Caracterisitcas nao podem ser iguais");
+ }  else if ((caracteristica >= 1 && caracteristica >= 6)) {
+  
+    switch (caracteristica)
    {
    
  case 1:   
-    if (populacao_cidade1 > populacao_cidade2) {
+    if ("populacao_cidade1 > popuacao_cidade2"){
         printf("Cidade Manaus(AM) X Cidade Belem(PA).\n");
         printf("o Atributo comprado foi População.\n");
         printf("População Manaus: %d de Pessoas\n", populacao_cidade1);
@@ -248,7 +241,46 @@ case 4:
 
     return caracteristica;
 }
-switch (caracteristica2)
+}    else {
+    printf("Escolha invalida");
+}
+
+ //apuração de escolhas de caracteristicas para que sajam comparadas.
+
+ 
+    if (opcao == carta1){
+
+    printf("Você escolheu a carta 1: Manaus(AM)\n");
+    printf("1. População: 2.279.686\n");
+    printf("2. Área: 1.140.100 km²\n");
+    printf("3. PIB: R$ 43.700.000\n");
+    printf("4. Número de pontos turísticos: 10\n");
+    printf("5. Densidade populacional: 2.000 hab/km²\n");
+    printf("6.  PIB per capita: R$ 19.200\n");
+
+    printf("###Escolha a segunda caracteristica###\n");
+    scanf("%d \n", &caracteristica2);
+
+}   else if (opcao == carta2){
+    printf("Você escolheu a carta 2: Belém(PA)\n");
+    printf("1. População: 1303403\n");
+    printf("2. Área: 1059000 km²\n");
+    printf("3. PIB: R$ 64000000\n");
+    printf("4. Número de pontos turísticos: 5\n");
+    printf("5. Densidade populacional: 1200 hab/km²\n");
+    printf("6. PIB per capita: R$ 49000\n");
+
+    printf("###Escolha a segunda caracteristica###\n");
+    scanf("%d \n", &caracteristica2);
+}   else{
+    printf("Opção Invalida");
+}
+
+    if (caracteristica == caracteristica2) {
+    printf("Opção Invalida, Caracteristicas nao podem ser iguais.");
+
+}  else if (caracteristica2 >= 1 && caracteristica2 <= 6){
+   switch (caracteristica2)
    {
    
 case 1:   
@@ -379,9 +411,16 @@ case 4:
     printf("Essa nao é uma opção valida!\n");
     printf("Por favor escolha uma opção valida!");
 
- return caracteristica2;
+     return caracteristica2;
+}
+}   else {
+    printf("Caracteristicas invalida");
+}
 }
 
 
-}
+
+
+
+
 
